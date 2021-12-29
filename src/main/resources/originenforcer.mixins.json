@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.sansserif.originenforcer.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+  ],
+  "server": [
+    "PlayerJoinMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
