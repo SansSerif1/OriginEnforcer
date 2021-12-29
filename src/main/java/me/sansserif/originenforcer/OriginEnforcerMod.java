@@ -10,12 +10,14 @@ public class OriginEnforcerMod implements DedicatedServerModInitializer {
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LogManager.getLogger("originenforcer");
-	private static final SimpleConfig CONFIG = SimpleConfig.of("originenforcer").request();
+	private static SimpleConfig CONFIG = SimpleConfig.of("originenforcer").request();
 	public static final String disconnectmsg = CONFIG.getOrDefault("dmsg", "Your origin has been assigned. Please reconnect to play!");
 
 	@Override
 	public void onInitializeServer() {
 		PlayerFirstJoinCallback.EVENT.register((connection, player, server) -> {
+			//reload config, incase something changed
+			CONFIG = SimpleConfig.of("originenforcer").request();
 			String playerorigin = CONFIG.getOrDefault(player.getName().asString(), "none");
 			if (!playerorigin.equals("none")) {
 				server.getCommandManager().execute(server.getCommandSource(), "origin set " + player.getName().asString() + " origins:origin " + playerorigin);
