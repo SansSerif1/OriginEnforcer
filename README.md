@@ -1,5 +1,7 @@
 # OriginEnforcer
-A mod that assigns Origins to players from a config file, disabling the choosing screen.
+- A mod that assigns Origins to players from a config file, disabling the choosing screen.\
+- Made for version 1.18.1 and up (but since it only executes commands in console, feel free to backport it to any version.)\
+- Server side only.
 
 ## How to use
 - Download the mod and move it to the mods/ folder in your fabric SERVER directory.
